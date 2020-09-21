@@ -1,0 +1,15 @@
+{%extends 'polls/temp.html'%} {% block header %} {{q.id}}aaasdasd {% endblock %}
+{%block body %}
+<ul>
+  <form action="{%  url 'results' question.id %}" method="post">
+    {% csrf_token %} 
+    {% for choice in choices %}
+    <input type="radio" name="choice" value="{{ choice.id }}" />
+    <label for="choice {{ forloop.counter }}">
+      {{ forloop.counter}}- {{ choice.choice_text}}</label>
+    <br />
+    {% endfor %}
+    <input type="submit" value="Submit" />
+  </form>
+</ul>
+{% endblock body %}

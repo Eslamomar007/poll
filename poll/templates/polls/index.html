@@ -1,0 +1,14 @@
+{% extends 'polls/temp.html' %} 
+
+{% block header %} Questions {% endblock %}
+
+{%block body %}
+<ul>
+  {% for question in q %}
+    <li>
+    <a href="{% url 'detail' question.id %}">{{ question.qtext }}</a>  </li>
+
+
+  {% endfor %}
+</ul>
+{% endblock %}
